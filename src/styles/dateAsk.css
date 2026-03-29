@@ -1,0 +1,127 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Nunito', sans-serif;
+  overflow: hidden;
+}
+
+@keyframes floatUp {
+  0%   { transform: translateY(110vh) rotate(0deg); opacity: 0.18; }
+  100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
+@keyframes cardIn {
+  from { transform: scale(0.7) translateY(40px); opacity: 0; }
+  to   { transform: scale(1) translateY(0); opacity: 1; }
+}
+@keyframes catBounce {
+  0%,100% { transform: translateY(0) rotate(-4deg) scale(1); }
+  25%      { transform: translateY(-14px) rotate(4deg) scale(1.08); }
+  50%      { transform: translateY(-6px) rotate(-2deg) scale(1.04); }
+  75%      { transform: translateY(-18px) rotate(5deg) scale(1.1); }
+}
+@keyframes catPop {
+  0%   { transform: scale(0) rotate(-15deg); opacity: 0; }
+  60%  { transform: scale(1.15) rotate(5deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+@keyframes heartPulse {
+  0%,100% { transform: scale(1); }
+  50%      { transform: scale(1.15); }
+}
+@keyframes msgFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes yesIn {
+  from { transform: scale(0.5) rotate(-10deg); opacity: 0; }
+  to   { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+@keyframes spinPop {
+  from { transform: scale(0) rotate(-180deg); }
+  to   { transform: scale(1) rotate(0deg); }
+}
+@keyframes confettiFall {
+  0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
+}
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  15%     { transform: translateX(-8px) rotate(-4deg); }
+  30%     { transform: translateX(8px) rotate(4deg); }
+  45%     { transform: translateX(-6px) rotate(-3deg); }
+  60%     { transform: translateX(6px) rotate(3deg); }
+  75%     { transform: translateX(-3px); }
+  90%     { transform: translateX(3px); }
+}
+@keyframes floatCats {
+  0%,100% { transform: translateY(0px); }
+  50%      { transform: translateY(-8px); }
+}
+.shake-anim { animation: shake 0.5s ease both; }
+
+/* ── Responsive wide-screen ─────────────────────────────── */
+.date-card {
+  max-width: 460px;
+  width: 92vw;
+  padding: 40px 40px 40px;
+}
+.date-card .cat-img { width: 140px; height: 140px; }
+.date-card .title-text { font-size: 1.75rem; }
+.date-card .subtitle-text { font-size: 1rem; }
+.date-card .msg-box { font-size: 1.05rem; }
+.date-card .yes-btn-base { font-size: 1.1rem; }
+
+@media (min-width: 768px) {
+  .date-card {
+    max-width: 640px;
+    padding: 48px 52px;
+  }
+  .date-card .cat-img { width: 180px; height: 180px; }
+  .date-card .title-text { font-size: 2.1rem; }
+  .date-card .subtitle-text { font-size: 1.15rem; }
+  .date-card .msg-box { font-size: 1.2rem; padding: 18px 24px !important; }
+}
+
+@media (min-width: 1100px) {
+  .date-card {
+    max-width: 860px;
+    padding: 56px 64px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    column-gap: 56px;
+    align-items: center;
+    text-align: left;
+  }
+  .date-card .cat-col {
+    grid-column: 1;
+    grid-row: 1 / 6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .date-card .cat-img { width: 260px; height: 260px; }
+  .date-card .content-col {
+    grid-column: 2;
+  }
+  .date-card .title-text { font-size: 2.4rem; }
+  .date-card .subtitle-text { font-size: 1.2rem; }
+  .date-card .msg-box { font-size: 1.25rem !important; }
+  .date-card .hearts-row { text-align: left; }
+  .date-card .btn-row { justify-content: flex-start !important; }
+}
+
+.date-card button:focus-visible {
+  outline: 3px solid #c084fc;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
